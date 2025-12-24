@@ -32,16 +32,16 @@ class LinkedList:
         if self.length == 0:
             return None
         temp = self.tail
-        pre = self.tail
-        while(temp.next):
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length == 0:
+        if self.length < 2:
             self.head = None
             self.tail = None
+        else:
+            node = self.head
+            for i in range(self.length - 2):
+                node = node.next
+            self.tail = node
+            self.tail.next = None
+        self.length -= 1
         return temp
 
 linkedlist = LinkedList(4)
