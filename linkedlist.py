@@ -55,6 +55,19 @@ class LinkedList:
         self.length += 1
         return True
 
+    def pop_first(self):
+        removed_node = self.head
+        if self.length == 0:
+            return None
+        elif self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            removed_node.next = None
+        self.length -= 1
+        return removed_node 
+
 linkedlist = LinkedList(4)
 linkedlist.append(9)
 linkedlist.pop()
