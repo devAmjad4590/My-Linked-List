@@ -81,15 +81,11 @@ class LinkedList:
         return node
 
     def set_value(self,index, value):
-        if self.length == 0 or index < 0 or index >= self.length:
-            return None
-        temp = self.head
-        i = 0
-        while i != index:
-            temp = temp.next
-            i += 1
-        temp.value = value
-        return True
+        temp = self.get(index) 
+        if temp:
+            temp.value = value
+            return True
+        return False
 
 
 linkedlist = LinkedList(4)
