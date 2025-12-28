@@ -68,6 +68,19 @@ class LinkedList:
         self.length -= 1
         return removed_node 
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if self.length == 0:
+            return None
+        node = self.head
+        i = 0
+        while i != index:
+            node = node.next 
+            i += 1
+        return node
+
+
 linkedlist = LinkedList(4)
 linkedlist.append(9)
 linkedlist.pop()
