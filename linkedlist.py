@@ -38,6 +38,18 @@ class LinkedList:
             fast = fast.next
         return slow
 
+    def has_loop(self):
+        slow = self.head
+        fast = self.head
+
+        while fast.next != None or fast != None:
+            fast = fast.next
+            fast = fast.next
+            slow = slow.next
+            if fast == slow:
+                return True
+        return False
+
 
     def pop(self):
         if self.length == 0:
