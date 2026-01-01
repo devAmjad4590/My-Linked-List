@@ -39,24 +39,18 @@ class LinkedList:
         return slow
 
     def remove_duplicates(self):
-        current_node = self.head
-        if current_node is None:
-            return None
-        myset = set()
-        prev = self.head
-        if current_node.value not in myset:
-            myset.add(current_node.value)
-            current_node = current_node.next
-        while current_node != None:
-            if current_node.value not in myset:
-                myset.add(current_node.value)
-                prev.next = current_node
-                current_node = current_node.next
-                prev = prev.next
+        seen = set()
+        current = self.head
+        prev = None
+
+        while current:
+            if current.value in seen:
+                prev.next = current.next
                 self.length -= 1
             else:
-                current_node = current_node.next
-        return True
+                seen.add(current.value)
+                prev = current
+            current = current.next
 
     def has_loop(self):
         slow = self.head
