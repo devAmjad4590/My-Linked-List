@@ -38,6 +38,14 @@ class LinkedList:
             fast = fast.next
         return slow
 
+    def binary_to_decimal(self):
+        curr = self.head
+        n = 0
+        while curr:
+            n = n * 2 + curr.value
+            curr = curr.next
+        return n
+
     def remove_duplicates(self):
         seen = set()
         current = self.head
