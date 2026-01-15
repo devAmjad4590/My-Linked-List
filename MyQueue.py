@@ -11,6 +11,11 @@ class MyQueue:
         while len(self.stack2) > 0:
             self.stack1.append(self.stack2.pop())
 
+    def dequeue(self):
+        if len(self.stack1) == 0:
+            return None
+        return self.stack1.pop()
+
     def peek(self):
         return self.stack1[-1]
 
