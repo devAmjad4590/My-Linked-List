@@ -94,3 +94,17 @@ def is_balanced_parentheses(string):
     return True if my_stack.is_empty() else False
 
 
+def sort_stack(stack):
+    new_stack = Stack()
+    while not stack.is_empty():
+        temp = stack.pop()
+        
+        while not new_stack.is_empty() and new_stack.peek() > temp:
+            stack.push(new_stack.pop())
+
+        new_stack.push(temp)
+
+    while not new_stack.is_empty():
+        stack.push(new_stack.pop())
+
+
